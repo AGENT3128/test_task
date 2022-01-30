@@ -1,0 +1,17 @@
+<form method="post" id="ErrForm">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}     
+
+
+    </table>
+
+    <button type="submit">Save</button>
+
+
+
+  </form>
+<script>
+$("#ErrForm").on('submit', function(event) {
+      alert("Good");
+</script>

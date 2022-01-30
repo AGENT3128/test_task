@@ -1,0 +1,14 @@
+<h1>Search Results</h1>
+
+<ul>
+    <form action="{% url 'test' %}" method="get">
+  <input name="q" type="text" placeholder="Search...">
+        <input type="submit" value="Search">
+    </form>
+  {% for i in object_list %}
+    <h3> Имя пользователя: {{ i.username }}</h3>
+    <p> Почта: {{ i.email }}</p>
+    <p> Возраст: {{ i.age }}</p>
+    <p> Гендер: {{ i.gender }}</p>
+    {% endfor %}
+</ul>

@@ -1,0 +1,64 @@
+---
+- name: Install Docker
+  gather_facts: No
+  hosts: test_servers
+  vars:
+    create_containers: 2
+    default_container_name: docker
+    default_container_image: centos 
+  tasks:
+    - name: Install yum utils,mapper,lvm2
+      yum:
+        name: "{{ item }}"
+        state: latest
+      become: yes
+      with_items:
+        - yum-utils
+        - lvm2
+        - device-mapper-persistent-data
+ 
+    - name: Add Docker repo
+      get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+ 
+    - name: Install Docker
+      package:
+        name: docker-ce
+        state: latest
+ 
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+    - name: Add user ansible to docker group
+      user:
+        name: root
+        groups: docker
+        append: yes
+      become: yes
+    - name: Install pip 
+      yum: 
+        name: python-pip
+        state: present
+    - name: Install docker python module
+      pip:
+        name: docker
+    - name: Install docker compose
+      yum:
+        name: docker-compose
+        state: latest
+      become: yes
+    - name: install dependecies
+      yum:
+        name: "{{ packages  }}"
+        state: present
+      vars:
+        packages:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io   
+      notify:
+        - docker status
+

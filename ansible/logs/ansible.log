@@ -1,0 +1,33 @@
+2022-01-30 15:02:00,682 p=18007 u=root n=ansible | server1 | FAILED! => {
+    "msg": "Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host."
+}
+2022-01-30 15:02:49,774 p=18025 u=root n=ansible | server1 | FAILED! => {
+    "msg": "Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host."
+}
+2022-01-30 15:06:24,983 p=18059 u=root n=ansible | server1 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added '127.0.0.1' (ECDSA) to the list of known hosts.\r\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", 
+    "unreachable": true
+}
+2022-01-30 15:08:09,520 p=18078 u=root n=ansible | server1 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", 
+    "unreachable": true
+}
+2022-01-30 15:10:16,146 p=18113 u=root n=ansible | server1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2022-01-30 15:10:53,019 p=18198 u=root n=ansible | server1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2022-01-30 15:11:09,972 p=18267 u=root n=ansible | server1 | CHANGED | rc=0 >>
+ 15:11:09 up 45 min,  3 users,  load average: 0,00, 0,01, 0,09
+
